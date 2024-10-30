@@ -131,6 +131,14 @@
         "city": "Tokyo",
         "medalsCount": 33,
         "athleteCount": 403
+      },
+
+      {
+        "id": 4,
+        "year": 2028,
+        "city": "Chambry",
+        "medalsCount": 999,
+        "athleteCount": 1
       }
     ]
   }

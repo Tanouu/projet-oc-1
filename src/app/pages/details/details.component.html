@@ -1,0 +1,25 @@
+<div *ngIf="countryDetails">
+  <h2>{{ countryDetails.country }}</h2>
+  <hr/>
+
+  <p>Number of Entries : {{ countryDetails.participations.length }}</p>
+  <p>Total number medals : {{ countryDetails.totalMedalsCount }}</p>
+  <p>Total Number of athletes : {{countryDetails.totalAthletesCount}}</p>
+
+  <h3>Participations</h3>
+  <ul>
+    <li *ngFor="let participation of countryDetails.participations">
+      <strong>Année :</strong> {{ participation.year }}<br>
+      <strong>Ville :</strong> {{ participation.city }}<br>
+      <strong>Médailles :</strong> {{ participation.medalsCount }}<br>
+      <strong>Nombre d'athlètes :</strong> {{ participation.athleteCount }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!countryDetails">
+  <p>Aucun détail disponible pour ce pays.</p>
+</div>
+
+<button [routerLink]="['']">Retour</button>
+
