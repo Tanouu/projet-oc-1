@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, map, Observable} from 'rxjs';
+import {BehaviorSubject, map, Observable, throwError} from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import {Olympic} from "../models/Olympic";
 
@@ -23,12 +23,10 @@ export class OlympicService {
         }));
         this.olympics$.next(formattedOlympics);
       }),
-      catchError((error, caught) => {
-        // TODO: improve error handling
-        console.error(error);
-        // can be useful to end loading state and let the user know something went wrong
+      catchError((error) => {
+        console.error('Error fetching Olympic data:', error);
         this.olympics$.next(null);
-        return caught;
+        return throwError(() => new Error('Failed to load Olympic data. Please try again later.'));
       })
     );
   }
