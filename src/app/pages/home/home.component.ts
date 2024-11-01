@@ -22,7 +22,7 @@ export type ChartOptions = {
 export class HomeComponent implements OnInit, OnDestroy {
   public olympics: Olympic[] = [];
   public totalJOCount: number = 0;
-  public chartOptions: Partial<ChartOptions>;
+  public chartOptions: ChartOptions;
   private subscriptions: Subscription = new Subscription();
 
   constructor(private olympicService: OlympicService, private router: Router) {
